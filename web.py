@@ -1,8 +1,12 @@
 import streamlit as st
 import modules.functions
+import os
+
+if not os.path.exists('todos.txt'):
+    with open("todos.txt", 'w') as file:
+        pass 
 
 todos = modules.functions.get_todos()
-
 def add_todo():
     todo = st.session_state['new_todo'] + "\n"
     todos.append(todo)
